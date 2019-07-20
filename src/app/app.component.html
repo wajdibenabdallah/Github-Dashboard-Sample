@@ -1,16 +1,29 @@
-<mat-card>
+<mat-card class="container">
     <mat-card-header>
-        <button mat-button>
+        <button mat-button="mat-button">
             <mat-icon>menu</mat-icon>
             {{title}}
         </button>
     </mat-card-header>
-    <mat-card-content>
-        <form class="example-form">
-            <mat-form-field>
-                <input matInput placeholder="Username">
-            </mat-form-field>
-            <button mat-button>Search</button>
-        </form>
-    </mat-card-content>
+    <div [ngSwitch]="screen">
+        <div *ngSwitchCase="'search'">
+            <mat-card-content>
+                <form class="example-form">
+                    <mat-form-field>
+                        <input matInput="matInput" placeholder="Username"></mat-form-field>
+                </form>
+                <button (click)="search()" mat-button="mat-button">Search</button>
+            </mat-card-content>
+        </div>
+        <div *ngSwitchCase="'dash'">
+            <mat-card-content>
+
+            </mat-card-content>
+        </div>
+        <div *ngSwitchDefault>
+            <mat-card-content>
+
+            </mat-card-content>
+        </div>
+    </div>
 </mat-card>
