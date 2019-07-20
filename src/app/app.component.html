@@ -1,29 +1,42 @@
-<mat-card class="container">
-    <mat-card-header>
-        <button mat-button="mat-button">
-            <mat-icon>menu</mat-icon>
-            {{title}}
+<mat-card class="mycontainer">
+  <ngx-spinner
+    [fullScreen]="false"
+    type="ball-clip-rotate-multiple"
+    size="medium"
+  >
+    <p class="loading">Loading ...</p>
+  </ngx-spinner>
+  <mat-card-header>
+    <button mat-button="mat-button">
+      <mat-icon>menu</mat-icon>
+      {{ title }}
+    </button>
+  </mat-card-header>
+  <div [ngSwitch]="screen">
+    <div *ngSwitchCase="'search'">
+      <mat-card-content>
+        <form class="example-form">
+          <mat-form-field>
+            <input matInput="matInput" placeholder="Username" #username />
+          </mat-form-field>
+        </form>
+        <button (click)="search(username.value)" mat-button="mat-button">
+          Search
         </button>
-    </mat-card-header>
-    <div [ngSwitch]="screen">
-        <div *ngSwitchCase="'search'">
-            <mat-card-content>
-                <form class="example-form">
-                    <mat-form-field>
-                        <input matInput="matInput" placeholder="Username"></mat-form-field>
-                </form>
-                <button (click)="search()" mat-button="mat-button">Search</button>
-            </mat-card-content>
-        </div>
-        <div *ngSwitchCase="'dash'">
-            <mat-card-content>
-
-            </mat-card-content>
-        </div>
-        <div *ngSwitchDefault>
-            <mat-card-content>
-
-            </mat-card-content>
-        </div>
+      </mat-card-content>
     </div>
+    <div *ngSwitchCase="'dash'">
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let repo of data | async">
+            <mat-icon matListIcon>folder</mat-icon>
+            <h3>{{ repo.name }}</h3>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </div>
+    <div *ngSwitchDefault>
+      <mat-card-content> </mat-card-content>
+    </div>
+  </div>
 </mat-card>
