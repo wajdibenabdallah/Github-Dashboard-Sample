@@ -6,27 +6,32 @@
   >
     <p class="loading">Loading ...</p>
   </ngx-spinner>
-  <mat-card-header>
-    <button mat-button="mat-button">
-      <mat-icon>menu</mat-icon>
-      {{ title }}
+  <mat-card-header class="header">
+    <button class="button-header" mat-button="mat-button" (click)="reset()">
+      <mat-icon class="menu-icon">menu</mat-icon>
+      <span class="menu-title">{{ title }}</span>
     </button>
   </mat-card-header>
   <div [ngSwitch]="screen">
     <div *ngSwitchCase="'search'">
-      <mat-card-content>
-        <form class="example-form">
-          <mat-form-field>
-            <input matInput="matInput" placeholder="Username" #username />
-          </mat-form-field>
-        </form>
-        <button (click)="search(username.value)" mat-button="mat-button">
-          Search
-        </button>
+      <mat-card-content class="search">
+        <mat-grid-list cols="2" rowHeight="100px">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <form class="example-form">
+              <mat-form-field>
+                <input matInput="matInput" placeholder="Username" #username />
+              </mat-form-field></form
+          ></mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <button (click)="search(username.value)" mat-button="mat-button" class="search-button">
+              Search
+            </button></mat-grid-tile
+          >
+        </mat-grid-list>
       </mat-card-content>
     </div>
     <div *ngSwitchCase="'dash'">
-      <mat-card-content>
+      <mat-card-content class="dash">
         <mat-list>
           <mat-list-item *ngFor="let repo of data | async">
             <mat-icon matListIcon>folder</mat-icon>

@@ -10,23 +10,30 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
-  ngOnInit(): void {
-    this.loading = false;
-  }
-  title = "gitHubDashboardSample";
-  screen = "search";
+  title = 'Github Dashboard Sample';
+  screen = 'search';
   data: Observable<any>;
   loading: Boolean = true;
   constructor(private gitService: GitService, private spinner: NgxSpinnerService) {}
+
+  ngOnInit(): void {
+    this.loading = false;
+  }
 
   search(username: string): void {
     this.spinner.show();
     setTimeout(() => {
       this.data = this.gitService.getData(username);
-      this.data.subscribe(data => {
+      this.data.subscribe(() => {
         this.spinner.hide();
         this.screen = "dash";
       });
-    }, 5000);
+    }, 1000);
+  }
+
+  reset(){
+    this.screen = 'search';
   }
 }
+
+

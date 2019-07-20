@@ -7,9 +7,32 @@
   overflow-y: auto;
 }
 
-.spinner {
-  display: relative;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
+.button-header {
+  background-color: #61cbfe99;
+  width: 526px;
+  margin: -15px 0px 0px -45px;
+}
+
+.mat-card-header {
+    width: 515px;
+    height: 50px;
+}
+
+.menu-icon{
+    position: absolute;
+    font-size: 75px;
+    margin: -15px 0px 0px -100px;
+}
+
+.menu-title{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.mat-grid-tile{
+    margin-top: 150px;
+}
+
+.search-button{
+    background-color: #fb0563a1
 }

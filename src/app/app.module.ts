@@ -9,7 +9,8 @@ import {
   MatIconModule,
   MatListModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatGridListModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -29,7 +30,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatGridListModule
   ],
   providers:  [{
     provide: HTTP_INTERCEPTORS,
