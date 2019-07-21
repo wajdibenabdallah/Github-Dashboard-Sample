@@ -13,23 +13,30 @@
     </button>
   </mat-card-header>
   <div [ngSwitch]="screen">
+    <!-- Screen 1 ****************************** -->
     <div *ngSwitchCase="'search'">
       <mat-card-content class="search">
         <mat-grid-list cols="2" rowHeight="100px">
           <mat-grid-tile [colspan]="1" [rowspan]="1">
-            <form class="example-form">
+            <form>
               <mat-form-field>
                 <input matInput="matInput" placeholder="Username" #username />
-              </mat-form-field></form
-          ></mat-grid-tile>
+              </mat-form-field>
+            </form>
+          </mat-grid-tile>
           <mat-grid-tile [colspan]="1" [rowspan]="1">
-            <button (click)="search(username.value)" mat-button="mat-button" class="search-button">
+            <button
+              (click)="search(username.value)"
+              mat-button="mat-button"
+              class="search-button"
+            >
               Search
-            </button></mat-grid-tile
-          >
+            </button>
+          </mat-grid-tile>
         </mat-grid-list>
       </mat-card-content>
     </div>
+    <!-- Screen 2 ****************************** -->
     <div *ngSwitchCase="'dash'">
       <mat-card-content class="dash">
         <mat-list>
@@ -40,6 +47,7 @@
         </mat-list>
       </mat-card-content>
     </div>
+    <!-- Screen 3 ****************************** -->
     <div *ngSwitchDefault>
       <mat-card-content> </mat-card-content>
     </div>

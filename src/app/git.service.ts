@@ -9,7 +9,7 @@ export class GitService {
 
   constructor(private http: HttpClient) { }
 
-  public getData(username: string): Observable<any> {
+  public getData(username: string): any | Object {
     return this.http.get(`users/${username}/repos`);
   }
 }
