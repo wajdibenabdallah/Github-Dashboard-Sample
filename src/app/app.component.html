@@ -7,14 +7,14 @@
     <p class="loading">Loading ...</p>
   </ngx-spinner>
   <mat-card-header class="header">
-    <button class="button-header" mat-button="mat-button" (click)="reset()">
+    <button class="button-header" mat-button="mat-button" (click)="back()">
       <mat-icon class="menu-icon">menu</mat-icon>
       <span class="menu-title">{{ title }}</span>
     </button>
   </mat-card-header>
   <div [ngSwitch]="screen">
     <!-- Screen 1 ****************************** -->
-    <div *ngSwitchCase="'search'">
+    <div *ngSwitchCase="'0'">
       <mat-card-content class="search">
         <mat-grid-list cols="2" rowHeight="100px">
           <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -45,7 +45,7 @@
       </mat-card-content>
     </div>
     <!-- Screen 2 ****************************** -->
-    <div *ngSwitchCase="'dash'">
+    <div *ngSwitchCase="'1'">
       <mat-card-content class="dash">
         <section id="dash-name">
           <img src="{{ user.avatar_url }}" alt="Avatar" class="avatar" />
@@ -96,8 +96,10 @@
           <mat-list-item>
             <span class="depot-label">Lien : </span>
             <span class="depot-value"
-              ><a href="{{ selectedDepot.html_url }} " target="_blank"> Lien vers la page Github </a
-            ></span>
+              ><a href="{{ selectedDepot.html_url }} " target="_blank">
+                Lien vers la page Github
+              </a></span
+            >
           </mat-list-item>
         </mat-list>
       </mat-card-content>

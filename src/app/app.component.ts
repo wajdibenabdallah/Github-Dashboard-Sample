@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GitService } from './git.service';
 import { Observable } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ScreenEnum } from './model/screen';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AppComponent implements OnInit {
   title: string;
-  screen: string;
+  screen: ScreenEnum;
   data: Observable<any>;
   loading: Boolean;
   errors: any;
@@ -23,7 +24,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.title = 'Github Dashboard Sample';
-    this.screen = 'search';
+    this.screen = ScreenEnum.SEARCH;
     this.loading = false;
   }
 
@@ -36,7 +37,7 @@ export class AppComponent implements OnInit {
         data => {
           this.user = data[0].owner;
           this.spinner.hide();
-          this.screen = 'dash';
+          this.screen = ScreenEnum.DASHBOARD;
         },
         (error: any) => {
           this.errors = error;
@@ -48,14 +49,14 @@ export class AppComponent implements OnInit {
 
   depotDetails(repo: any): void {
     this.selectedDepot = repo;
-    this.screen = 'depot';
+    this.screen = ScreenEnum.DEPOT;
   }
 
-  reset(): void {
-    if (this.screen === 'depot') {
-      this.screen = 'dash';
+  back(): void {
+    if (this.screen === ScreenEnum.DEPOT) {
+      this.screen = ScreenEnum.DASHBOARD;
     } else {
-      this.screen = 'search';
+      this.screen = ScreenEnum.SEARCH;
     }
   }
 }

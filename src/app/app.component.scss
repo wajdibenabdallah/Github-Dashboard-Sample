@@ -110,17 +110,16 @@ h4 {
 
 .list {
   &:hover {
-      background-color: #61cbfe99;
-      cursor: pointer;
+    background-color: #61cbfe99;
+    cursor: pointer;
   }
 }
 
-.depot-label{
+.depot-label {
   font-weight: bold;
   font-size: large;
 }
 
-.depot-value{
+.depot-value {
   font-size: medium;
 }
-
