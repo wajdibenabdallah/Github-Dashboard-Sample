@@ -52,16 +52,55 @@
           <span class="dash-name-login">{{ user.login }}</span>
         </section>
         <mat-list>
-          <mat-list-item *ngFor="let repo of data | async">
-            <mat-icon matListIcon>folder</mat-icon>
-            <h3>{{ repo.name }}</h3>
+          <mat-list-item *ngFor="let repo of data | async" class="list">
+            <mat-icon matListIcon>inbox</mat-icon>
+            <h4 (click)="depotDetails(repo)">{{ repo.name }}</h4>
           </mat-list-item>
         </mat-list>
       </mat-card-content>
     </div>
     <!-- Screen 3 ****************************** -->
     <div *ngSwitchDefault>
-      <mat-card-content> </mat-card-content>
+      <mat-card-content>
+        <section id="dash-name">
+          <img src="{{ user.avatar_url }}" alt="Avatar" class="avatar" />
+          <span class="dash-name-login">{{ user.login }}</span>
+        </section>
+        <mat-list>
+          <mat-list-item>
+            <span class="depot-label">Nom : </span>
+            <span class="depot-value">{{ selectedDepot.name }} </span>
+          </mat-list-item>
+          <mat-list-item>
+            <span class="depot-label">Langage : </span>
+            <span class="depot-value">{{ selectedDepot.language }} </span>
+          </mat-list-item>
+          <mat-list-item>
+            <span class="depot-label">Stars : </span>
+            <span class="depot-value"
+              >{{ selectedDepot.stargazers_count }}
+            </span>
+          </mat-list-item>
+          <mat-list-item>
+            <span class="depot-label">Description : </span>
+            <span class="depot-value">{{ selectedDepot.description }} </span>
+          </mat-list-item>
+          <mat-list-item>
+            <span class="depot-label">Date de création : </span>
+            <span class="depot-value">{{ selectedDepot.created_at }} </span>
+          </mat-list-item>
+          <mat-list-item>
+            <span class="depot-label">Date de mise à jour : </span>
+            <span class="depot-value">{{ selectedDepot.updated_at }} </span>
+          </mat-list-item>
+          <mat-list-item>
+            <span class="depot-label">Lien : </span>
+            <span class="depot-value"
+              ><a href="{{ selectedDepot.url }} "></a
+            ></span>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
     </div>
   </div>
 </mat-card>

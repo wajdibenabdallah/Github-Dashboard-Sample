@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   loading: Boolean;
   errors: any;
   user: any;
+  selectedDepot: any;
   constructor(
     private gitService: GitService,
     private spinner: NgxSpinnerService
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.data = this.gitService.getData(username);
       this.data.subscribe(
-        (data) => {
+        data => {
           this.user = data[0].owner;
           this.spinner.hide();
           this.screen = 'dash';
@@ -45,7 +46,13 @@ export class AppComponent implements OnInit {
     }, 1000);
   }
 
-  reset() {
+  depotDetails(repo: any): void {
+    this.selectedDepot = repo;
+    console.log(this.selectedDepot);
+    this.screen = 'depot';
+  }
+
+  reset(): void {
     this.screen = 'search';
   }
 }

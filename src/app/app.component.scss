@@ -73,7 +73,7 @@
   background-color: #dcd8d8;
   border-radius: 10px;
   text-overflow: ellipsis;
-  border: 1px solid;
+  border: 0px solid;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -105,3 +105,25 @@ span {
   margin-top: 5px;
   text-overflow: ellipsis;
 }
+
+h4 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.list {
+  &:hover {
+      background-color: #61cbfe99;
+      cursor: pointer;
+  }
+}
+
+.depot-label{
+  font-weight: bold;
+  font-size: large;
+}
+
+.depot-value{
+  font-size: medium;
+}
+
