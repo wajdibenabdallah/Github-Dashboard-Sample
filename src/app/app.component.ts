@@ -48,11 +48,14 @@ export class AppComponent implements OnInit {
 
   depotDetails(repo: any): void {
     this.selectedDepot = repo;
-    console.log(this.selectedDepot);
     this.screen = 'depot';
   }
 
   reset(): void {
-    this.screen = 'search';
+    if (this.screen === 'depot') {
+      this.screen = 'dash';
+    } else {
+      this.screen = 'search';
+    }
   }
 }
