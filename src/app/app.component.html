@@ -33,12 +33,24 @@
               Search
             </button>
           </mat-grid-tile>
+          <mat-grid-tile
+            *ngIf="errors && errors.message"
+            [colspan]="2"
+            [rowspan]="2"
+            class="error"
+          >
+            {{ errors.error.message }}
+          </mat-grid-tile>
         </mat-grid-list>
       </mat-card-content>
     </div>
     <!-- Screen 2 ****************************** -->
     <div *ngSwitchCase="'dash'">
       <mat-card-content class="dash">
+        <section id="dash-name">
+          <img src="{{ user.avatar_url }}" alt="Avatar" class="avatar" />
+          <span class="dash-name-login">{{ user.login }}</span>
+        </section>
         <mat-list>
           <mat-list-item *ngFor="let repo of data | async">
             <mat-icon matListIcon>folder</mat-icon>

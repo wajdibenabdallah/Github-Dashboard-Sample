@@ -14,25 +14,94 @@
 }
 
 .mat-card-header {
-    width: 515px;
-    height: 50px;
+  width: 515px;
+  height: 50px;
 }
 
-.menu-icon{
-    position: absolute;
-    font-size: 75px;
-    margin: -15px 0px 0px -100px;
+.menu-icon {
+  position: absolute;
+  font-size: 75px;
+  margin: -15px 0px 0px -100px;
 }
 
-.menu-title{
-    font-size: x-large;
-    font-weight: bold;
+.menu-title {
+  font-size: x-large;
+  font-weight: bold;
 }
 
-.mat-grid-tile{
-    margin-top: 150px;
+.mat-grid-tile {
+  margin-top: 150px;
 }
 
-.search-button{
-    background-color: #fb0563a1
+.search-button {
+  background-color: #fb0563a1;
+}
+
+.error {
+  -webkit-animation: fadeinout 2s linear forwards;
+  animation: fadeinout 2s linear forwards;
+  background-color: #f33c3c33;
+  border-radius: 40px;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinout {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+#dash-name {
+  margin-top: 25px;
+  height: 30px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #dcd8d8;
+  border-radius: 10px;
+  text-overflow: ellipsis;
+  border: 1px solid;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+span {
+  width: 100px;
+  border: 0px solid;
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: -70px;
+  position: absolute;
+}
+
+.dash-name-login {
+  position: absolute;
+  margin-left: -40px;
+  margin-top: 5px;
+  text-overflow: ellipsis;
 }

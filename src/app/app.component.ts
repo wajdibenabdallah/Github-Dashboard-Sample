@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   screen: string;
   data: Observable<any>;
   loading: Boolean;
+  errors: any;
+  user: any;
   constructor(
     private gitService: GitService,
     private spinner: NgxSpinnerService
@@ -26,15 +28,18 @@ export class AppComponent implements OnInit {
 
   search(username: string): void {
     this.spinner.show();
+    this.errors = null;
     setTimeout(() => {
       this.data = this.gitService.getData(username);
       this.data.subscribe(
-        () => {
+        (data) => {
+          this.user = data[0].owner;
           this.spinner.hide();
           this.screen = 'dash';
         },
         (error: any) => {
-          console.log(error, typeof error);
+          this.errors = error;
+          this.spinner.hide();
         }
       );
     }, 1000);
